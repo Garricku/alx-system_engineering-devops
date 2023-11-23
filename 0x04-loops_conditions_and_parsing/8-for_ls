@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Display the files of the current Directory in list format
+for file in ./*
+do
+	if [ ! -f "$file" ] || [[ "$file" == .* ]]
+	then
+		continue
+	fi
+	filename=$(basename -- "$file")
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+	if [[ "$filename" == -* ]]
+	then
+		echo "${filename#*-}.${extension}"
+	else
+		echo "$filename.${extension}"
+	fi
+done
