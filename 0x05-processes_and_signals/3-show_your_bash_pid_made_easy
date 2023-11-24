@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script displays the PID, process name, containing the word bash.
+for pid in /proc/*/status; do
+	if grep -q "Name:.*bash" "$pid"; then
+	echo "$$ bash"
+	fi
+done

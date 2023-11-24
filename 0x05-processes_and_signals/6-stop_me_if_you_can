@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Write a Bash script that stops 4-to_infinity_and_beyond process.
+for pid in /proc/*/status; do
+	if grep -q "Name:.*4-to_infinity_and_beyond" "$pid"; then
+		echo "Stopping process with PID $(grep -h "Pid:" "$pid")"
+		echo "STOP" > "/proc/$(grep -h "Pid:" "$pid" | awk '{print $2}')/status"
+	fi
+done

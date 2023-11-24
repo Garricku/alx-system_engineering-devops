@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays i am invincible!!! when receiving a SIGTERM
+trap 'echo "I am invincible!!!"; exit 0' SIGTERM
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	continue
+done
