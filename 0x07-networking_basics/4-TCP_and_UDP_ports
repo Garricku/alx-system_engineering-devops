@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Write a Bash script that displays listening ports.
+netstat -tlnp | awk '$6 == "LISTEN" {print $4, $7}' | awk -F/ '{print $1, $NF}' | sed 's/://g'
