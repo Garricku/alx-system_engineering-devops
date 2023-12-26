@@ -1,13 +1,1 @@
-Firstly we start with a client that wants to access a website. The client sent a request to the website www.foobar.com. Unfortunalty since it was the first time requesting this website the OS does not have it's information saved in the cache therefore it has to go to the Resolving Same Server to get the IP address of the domain name for www.foobar.com from the DNS.
-
-First the OS goes to the Resolving Name server to find the domain's IP address but instead of finding it it gets redirected to the root name server which in turn directs it to the com servers also known as the TLD Name Servers. It recieves information that is cached, but still does not have the IP address so it has to move on to the ANS. Finally it gets the IP address 8.8.8.8 and saves this data inthe cache.
-
-Now it can finally make a request to a website, but the website was too busy to handle the request on its own. So, the website used a load balancer to distribute the request to multiple servers.
-
-The load balancer acted like a traffic cop, directing the request to the appropriate server based on various factors such as server capacity, workload, and type of request. Once the load balancer determined which server to send the request to, it forwarded the request to the server.
-
-The server then processed the request and sent a response back to the load balancer. The load balancer then forwarded the response back to the client. This process ensured that the client’s request was handled quickly and efficiently, without overloading any single server.
-
-However, there was a problem. If any one of the servers failed, the entire system would fail. This was known as a single point of failure (SPOF). To prevent this from happening, the system was designed with multiple servers, each with its own copy of the website’s files and databases.
-
-To further improve security, each server was equipped with a firewall. A firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. Firewalls are used to prevent unauthorized access to or from private networks connected to the internet.
+https://drive.google.com/file/d/1U83fGk5dvS_jo4EpuJm30Cz1hHcjtqdx/view?usp=sharing
