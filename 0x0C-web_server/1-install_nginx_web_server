@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Install Nginx and Configure Nginx
+
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+sudo sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
+sudo service nginx restart
