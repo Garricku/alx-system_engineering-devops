@@ -1,3 +1,5 @@
+# puppet code to config nginx
+
 class { 'nginx':
   listen_port => '80',
 }
