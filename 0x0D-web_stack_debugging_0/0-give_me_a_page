@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Accesses a docker image to get access to the contents
-sudo service apache2 start
 echo 'ServerName 474988-web-01' >> /etc/apache2/apache2.conf
+sudo service apache2 start
