@@ -4,33 +4,18 @@
 sudo apt-get update
 sudo apt-get install nginx
 echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+sudo sed -i 's/# server_name _;/server_name _;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# listen 80;/listen 80;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# listen \[::\]:80;/listen \[::\]:80;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# root \/var\/www\/html;/root \/var\/www\/html;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# index index.html;/index index.html;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# location \/ {/location \/ {\n        try_files $uri $uri\/ =404;\n    }/g' /etc/nginx/sites-available/default
+sudo sed -i 's/# location \/hello {/location \/hello {\n        return 200 \"Hello World!\";\n    }/g' /etc/nginx/sites-available/default
 
-    root /var/www/html;
-    index index.html;
-
-    server_name _;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location /hello {
-        return 200 "Hello World!";
-    }
-}" > /etc/nginx/sites-available/default
-echo "server {
-    listen 80;
-    listen [::]:80;
-
-    server_name _;
-
-    location /redirect_me {
-        return 301 http://www.phoenixone.tech/;
-    }
-}" > /etc/nginx/sites-available/redirect_me
+sudo sed -i 's/# server_name _;/server_name _;/g' /etc/nginx/sites-available/redirect_me
+sudo sed -i 's/# listen 80;/listen 80;/g' /etc/nginx/sites-available/redirect_me
+sudo sed -i 's/# listen \[::\]:80;/listen \[::\]:80;/g' /etc/nginx/sites-available/redirect_me
+sudo sed -i 's/# location \/redirect_me {/location \/redirect_me {\n        return 301 http:\/\/www.phoenixone.tech\/;\n    }/g' /etc/nginx/sites-available/redirect_me
 sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo service nginx restart
