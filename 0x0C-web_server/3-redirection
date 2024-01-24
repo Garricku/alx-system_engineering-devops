@@ -28,7 +28,7 @@ echo "server {
     server_name _;
 
     location /redirect_me {
-        return 301 http://www.example.com/;
+        return 301 http://www.phoenixone.tech/;
     }
 }" > /etc/nginx/sites-available/redirect_me
 sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
