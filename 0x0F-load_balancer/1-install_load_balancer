@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script installs and configures HAProxy on your lb-01 server.
+
+# Install HAProxy
+sudo apt-get update
+sudo apt-get -y install haproxy
+
+# Configure HAProxy
+sudo sed -i 's/# defaults/defaults/' /etc/haproxy/haproxy.cfg
+sudo sed -i '/defaults/a \        mode http\n        balance roundrobin\n        server web-01 474988-web-01:80 check\n        server web-02 474988-web-02:80 check' /etc/haproxy/haproxy.cfg
+
+# Manage HAProxy via an init script
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
