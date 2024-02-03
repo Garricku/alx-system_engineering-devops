@@ -1,25 +1,7 @@
 #!/usr/bin/env bash
 # Install Nginx and Configure Nginx
-
 sudo apt-get update -y sudo apt-get upgrade -y
 sudo apt-get install nginx -y
 echo "Hello World!" > /var/www/html/index.html
-echo "server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html;
-    index index.html;
-
-    server_name _;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location /hello {
-        return 200 "Hello World!";
-    }
-}" > /etc/nginx/sites-available/default
 sudo nginx -t
 sudo service nginx restart
