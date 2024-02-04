@@ -6,6 +6,9 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get -y install haproxy
 
 # Configure HAProxy
+sudo mkdir /etc/haproxy/certs/
+sudo openssl dhparam -out /etc/haproxy/certs/dhparams.pem 2048
+sudo cat /etc/letsencrypt/live/www.holberton.online/fullchain.pem /etc/letsencrypt/live/www.holberton.online/privkey.pem | sudo tee /etc/haproxy/certs/cert.pem > /dev/null
 sudo echo "# Specify the DH parameter file
 	ssl-dh-param-file /etc/haproxy/certs/dhparams.pemfrontend http
 
