@@ -14,7 +14,7 @@ sudo echo "server {
 	root/var/www/html;
 	index index.html index.htm;
 	server_name _;
-	add_header X-Served-By 03-web-02;
+	add_header X-Served-By $HOSTNAME;
 	location / {
 		try_files $uri $uri/ -404;
 	}
