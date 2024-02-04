@@ -20,4 +20,4 @@ sudo echo "server {
 }" > /etc/nginx/sites-available/default
 # Restart Nginx
 sudo nginx -t
-sudo systemctl reload nginx
+sudo service restart nginx
