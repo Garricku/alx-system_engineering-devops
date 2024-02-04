@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# This script configures Nginx to include a custom HTTP header in its HTTP response.
-# The name of the custom HTTP header is X-Served-By, and the value is the hostname of the server Nginx is running on.
+# This script configures Nginx to include a custom HTTP header in its HTTP response. The name of the custom HTTP header is X-Served-By, and the value is the hostname of the server Nginx is running on.
 
 # Install Nginx
 sudo apt-get update -y && sudo apt-get upgrade -y
@@ -14,7 +13,7 @@ sudo echo "server {
 	root/var/www/html;
 	index index.html index.htm;
 	server_name _;
-	add_header X-Served-By $HOSTNAME;
+	add_header X-Served-By 03-web-02;
 	location / {
 		try_files $uri $uri/ -404;
 	}
