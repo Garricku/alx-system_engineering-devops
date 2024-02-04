@@ -10,11 +10,14 @@ sudo echo "# Specify the DH parameter file
 	ssl-dh-param-file /etc/haproxy/certs/dhparams.pemfrontend http
 
 frontend www-https
-	bind :443 ssl crt /etc/haproxy/certs/cert.pem
+	bind *:443 ssl crt /etc/haproxy/certs/cert.pem
 	http-request redirect scheme https unless { ssl_fc }
 	default_backend myservers
+
+frontend http
 	bind *:80
 	mode http
+	redirect scheme https code 301 if !{ ssl_fc }
 	default_backend myservers
 
 backend myservers
