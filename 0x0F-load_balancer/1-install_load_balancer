@@ -6,17 +6,24 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get -y install haproxy
 
 # Configure HAProxy
-sudo echo "frontend http
-        bind *:80
-        mode http
-        default_backend myservers
+sudo echo "# Specify the DH parameter file
+	ssl-dh-param-file /etc/haproxy/certs/dhparams.pemfrontend http
+
+frontend www-https
+	bind :443 ssl crt /etc/haproxy/certs/cert.pem
+	http-request redirect scheme https unless { ssl_fc }
+	default_backend myservers
+	bind *:80
+	mode http
+	default_backend myservers
 
 backend myservers
-        mode http
-        balance roundrobin
-        server 474988-web-01 54.146.82.137:80 check
-        server 474988-web-02 54.237.106.250:80 check" >> /etc/haproxy/haproxy.cfg
+	mode http
+	balance roundrobin
+	server 474988-web-01 54.146.82.137:80 check
+	server 474988-web-02 54.237.106.250:80 check
+" >> /etc/haproxy/haproxy.cfg
 
 # Manage HAProxy via an init script
 sudo systemctl enable haproxy
-sudo systemctl start haproxy
+sudo systemctl restart haproxy
