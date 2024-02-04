@@ -3,7 +3,7 @@
 # The name of the custom HTTP header is X-Served-By, and the value is the hostname of the server Nginx is running on.
 
 # Install Nginx
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get -y install nginx
 
 # Configure Nginx
@@ -14,8 +14,8 @@ sudo echo "server {
 	root/var/www/html;
 	index index.html index.htm;
 	server_name _;
+	add_header X-Served-By 03-web-02;
 	location / {
-		add_header X-Served-By '03-web-02'
 		try_files $uri $uri/ -404;
 	}
 }"
