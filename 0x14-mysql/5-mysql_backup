@@ -21,7 +21,4 @@ mysqldump -u root -p"${MYSQL_ROOT_PASSWORD}" --all-databases > "${OUTPUT_FILE}"
 # Compress the dump into a tar.gz archive
 tar czf "${DATE}.tar.gz" "${OUTPUT_FILE}"
 
-# Clean up the temporary dump file
-rm "${OUTPUT_FILE}"
-
 echo "Backup completed. Archive saved as ${DATE}.tar.gz"
