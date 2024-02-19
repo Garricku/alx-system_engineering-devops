@@ -2,6 +2,7 @@
 """This is the 2-export_to_JSON module"""
 import json
 import requests
+from sys import argv
 
 
 def get_employee_todo_progress(employee_id):
@@ -39,5 +40,5 @@ def get_employee_todo_progress(employee_id):
 
 
 if __name__ == "__main__":
-    employee_id = int(input("Enter the employee ID: "))
+    employee_id = argv[1]
     get_employee_todo_progress(employee_id)
