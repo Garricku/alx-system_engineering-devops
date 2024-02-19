@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 3-dictionary_of_list_of_dictionaries module"""
-import requests
 import json
+import requests
 
 
 def get_employee_todo_progress():

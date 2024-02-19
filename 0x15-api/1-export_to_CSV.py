@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 1-export_to_CSV module"""
-import requests
 import csv
+import requests
 
 
 def get_employee_todo_progress(employee_id):

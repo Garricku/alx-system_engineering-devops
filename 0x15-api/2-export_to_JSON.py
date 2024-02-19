@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This is the 2-export_to_JSON module"""
-import requests
 import json
+import requests
 
 
 def get_employee_todo_progress(employee_id):
