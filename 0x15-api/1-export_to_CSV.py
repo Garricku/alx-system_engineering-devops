@@ -38,8 +38,6 @@ def get_employee_todo_progress(employee_id):
                                      task["completed"],
                                      task["title"]])
 
-        print(f"Data exported to {csv_filename}")
-
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")
 

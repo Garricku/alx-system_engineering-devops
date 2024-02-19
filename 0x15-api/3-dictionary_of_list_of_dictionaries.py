@@ -36,8 +36,6 @@ def get_employee_todo_progress():
         with open(json_filename, "w") as jsonfile:
             json.dump(all_employees_data, jsonfile, indent=4)
 
-        print(f"Data exported to {json_filename}")
-
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")
 
