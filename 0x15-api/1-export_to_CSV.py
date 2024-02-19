@@ -19,6 +19,7 @@ def get_employee_todo_progress(employee_id):
         todos_data = todos_response.json()
 
         employee_name = user_data["name"]
+        usr_name = user_data["username"]
         total_tasks = len(todos_data)
         done_tasks = sum(1 for task in todos_data if task["completed"])
 
@@ -27,10 +28,10 @@ def get_employee_todo_progress(employee_id):
             csv_writer = csv.writer(csvfile)
             for task in todos_data:
                 emp_id = '{}'.format(employee_id)
-                emp_name = '{}'.format(employee_name)
+                user_name = '{}'.format(usr_name)
                 task_comp = '{}'.format(task["completed"])
                 task_title = '{}'.format(task["title"])
-                csv_writer.writerow([emp_id, emp_name, task_comp, task_title])
+                csv_writer.writerow([emp_id, user_name, task_comp, task_title])
 
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")
