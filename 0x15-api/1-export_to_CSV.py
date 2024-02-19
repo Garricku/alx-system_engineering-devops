@@ -22,22 +22,15 @@ def get_employee_todo_progress(employee_id):
         total_tasks = len(todos_data)
         done_tasks = sum(1 for task in todos_data if task["completed"])
 
-        print("Employee {} is done with tasks({}/{}):".format(employee_name,
-                                                               done_tasks,
-                                                               total_tasks
-                                                               ))
-        for task in todos_data:
-            if task["completed"]:
-                print(f"\t{task['title']}")
-
         csv_filename = f"{employee_id}.csv"
         with open(csv_filename, "w", newline="") as csvfile:
             csv_writer = csv.writer(csvfile)
             for task in todos_data:
-                csv_writer.writerow([employee_id,
-                                     employee_name,
-                                     task["completed"],
-                                     task["title"]])
+                emp_id = '"{}"'.format(employee_id)
+                emp_name = '"{}"'.format(employee_name)
+                task_comp = '"{}"'.format(task["completed"])
+                task_title = '"{}"'.format(task["title"])
+                csv_writer.writerow([emp_id, emp_name, task_comp, task_title])
 
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")
