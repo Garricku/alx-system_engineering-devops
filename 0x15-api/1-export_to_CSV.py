@@ -25,12 +25,12 @@ def get_employee_todo_progress(employee_id):
 
         csv_filename = f"{employee_id}.csv"
         with open(csv_filename, "w", newline="") as csvfile:
-            csv_writer = csv.writer(csvfile)
+            csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
             for task in todos_data:
-                emp_id = '{}'.format(employee_id)
-                user_name = '{}'.format(usr_name)
-                task_comp = '{}'.format(task["completed"])
-                task_title = '{}'.format(task["title"])
+                emp_id = str(employee_id)
+                user_name = str(usr_name)
+                task_comp = str(task["completed"])
+                task_title = str(task["title"])
                 csv_writer.writerow([emp_id, user_name, task_comp, task_title])
 
     except requests.RequestException as e:
