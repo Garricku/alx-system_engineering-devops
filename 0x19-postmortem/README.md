@@ -27,3 +27,5 @@
 <li>a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)</li>
 <li>Be brief and straight to the point, between 400 to 600 words</li>
 </ul>
+
+Click the link to see the project: <a href="https://docs.google.com/document/d/1wI9lVuAsQjyzlxIgpTj8n8Q5cBigsj7w4M0EBssAudE/edit?usp=sharing">Postmortem</a>
