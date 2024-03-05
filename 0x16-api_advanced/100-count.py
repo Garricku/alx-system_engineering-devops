@@ -54,4 +54,4 @@ def count_words(subreddit, word_list, after=None):
         else:
             pass
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        print(f"{e}")

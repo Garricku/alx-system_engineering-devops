@@ -31,5 +31,5 @@ def number_of_subscribers(subreddit):
         else:
             return 0
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        print(f"{e}")
         return 0
