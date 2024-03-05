@@ -1,4 +1,4 @@
-#!/usr/bin.python3
+#!/usr/bin/python3
 """This is the 1-top_ten module"""
 
 import requests
