@@ -4,9 +4,11 @@
 import requests
 from collections import Counter
 
+
 def count_words(subreddit, word_list, after=None):
     """
-    Recursively queries the Reddit API, parses hot article titles, and prints keyword counts.
+    Recursively queries the Reddit API, parses hot article titles, and prints
+    keyword counts.
 
     Args:
         subreddit (str): The name of the subreddit.
