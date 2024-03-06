@@ -32,4 +32,4 @@ def top_ten(subreddit):
         else:
             print("None")
     except Exception as e:
-        print(f"None{e}")
+        print("None")
