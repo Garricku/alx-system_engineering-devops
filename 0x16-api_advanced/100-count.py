@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ this is the 100-count module"""
 
-import requests
 from collections import Counter
+import requests
 
 
 def count_words(subreddit, word_list, after=None):
